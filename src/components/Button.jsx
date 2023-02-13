@@ -55,8 +55,8 @@ function Button() {
             {btnLabel.map((item, i) => {
                 return (
                     <ButtonArea key={i}>
-                        <LargeBtn color={btnColor(item)} onClick={i == 0 ? primaryClick : negativeClick}>
-                            {i == 0 ? `${item} 👉` : `${item} 🔔`}
+                        <LargeBtn color={btnColor(item)} onClick={i === 0 ? primaryClick : negativeClick}>
+                            {i === 0 ? `${item} 👉` : `${item} 🔔`}
                         </LargeBtn>
                         <MediumBtn color={btnColor(item)}>Medium</MediumBtn>
                         <SmallBtn color={btnColor(item)}>Small</SmallBtn>
