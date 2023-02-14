@@ -8,7 +8,6 @@ const SelectDiv = styled.div`
     border: 3px solid darkred;
     margin-top: 30px;
     padding-bottom: 50px;
-    position: relative;
     overflow: ${(props) => (props.over === true ? 'hidden' : 'visible')};
 `;
 

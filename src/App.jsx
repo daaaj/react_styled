@@ -8,8 +8,8 @@ function App() {
         <>
             <Button></Button>
             <Input></Input>
-            <Modal></Modal>
-            <Select></Select>
+            <Modal style={{ 'z-index': 999 }}></Modal>
+            <Select style={{ 'z-index': 100 }}></Select>
         </>
     );
 }
