@@ -67,12 +67,15 @@ function Select() {
     const leftSelect = useRef();
     const rightSelect = useRef();
 
+    // cleanup 작성하기!!!!!!!!
+
     useEffect(() => {
         const leftSelectClick = (e) => {
             if (leftSelect.current.contains(e.target)) {
                 setShow(!show);
             }
         };
+
         document.addEventListener('mousedown', leftSelectClick);
     });
 

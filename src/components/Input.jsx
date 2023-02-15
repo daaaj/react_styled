@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
-// import NumberFormat from 'react-number-format'
 
 const FormArea = styled.form`
     > label {
@@ -50,7 +49,7 @@ function Input() {
         }
         if (num || value !== '') {
             // 정규식으로... 콤마 -> ''로 바꿔주기
-            let newValue = value.replace(/,/g, '');
+            let newValue = value.replace('/,/g', '');
             // 정규식으로...3자리마다 콤마 넣어주기...
             value = newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             // setPrice 값 넣기
@@ -71,10 +70,11 @@ function Input() {
         <div>
             <h1>Input</h1>
             <FormArea>
-                <label>이름</label>
-                <input type="text" value={name} onChange={nameInput} />
-                <label>가격</label>
-                <input type="text" value={price} onChange={priceInput} />
+                {/* jsx에서는 for 대신에 htmlfor 써야함!! */}
+                <label htmlFor="name">이름</label>
+                <input type="text" name="name" value={name} onChange={nameInput} />
+                <label htmlFor="price">가격</label>
+                <input type="text" name="price" value={price} onChange={priceInput} />
 
                 <button type="button" onClick={submitBtn}>
                     저장

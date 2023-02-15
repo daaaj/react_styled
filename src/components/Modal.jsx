@@ -59,25 +59,16 @@ const ModalOutArea = styled.div`
 `;
 
 function Modal() {
+    // 모달창 display 속성 none / block
     const [open, setOpen] = useState('none');
     const [open2, setOpen2] = useState('none');
 
-    // open 클릭시
-    const openModal = (e) => {
-        if (e.target.name === 'first') {
-            // 동시에 모달창 두개 안열리게...
-            setOpen('block');
-            setOpen2('none');
-        } else {
-            setOpen('none');
-            setOpen2('block');
-        }
-    };
-    // close 클릭시
+    // open버튼 클릭시
+    const OpenModal = (e) => (e.target.name === 'first' ? setOpen('block') : setOpen2('block'));
+    // close버튼 클릭시
     const closeModal = (e) => (e.target.name === 'first' ? setOpen('none') : setOpen2('none'));
 
     // 2번 모달창 outside 클릭시 close
-    // useRef()
     const outside = useRef();
 
     useEffect(() => {
@@ -93,10 +84,10 @@ function Modal() {
         <div>
             <h1>Modal</h1>
             <div>
-                <OpenModalBtn onClick={openModal} name={'first'} color={'gold'}>
+                <OpenModalBtn name={'first'} color={'gold'} onClick={OpenModal}>
                     open modal
                 </OpenModalBtn>
-                <OpenModalBtn onClick={openModal} color={'beige'}>
+                <OpenModalBtn color={'beige'} onClick={OpenModal}>
                     open modal
                 </OpenModalBtn>
             </div>
