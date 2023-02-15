@@ -9,6 +9,8 @@ const SelectDiv = styled.div`
     margin-top: 30px;
     padding-bottom: 50px;
     overflow: ${(props) => (props.over === true ? 'hidden' : 'visible')};
+    // 전체화면에서 modal 밑으로 깔기위해
+    z-index: 500;
 `;
 
 const SelectListArea = styled.div`
@@ -67,8 +69,6 @@ function Select() {
     const leftSelect = useRef();
     const rightSelect = useRef();
 
-    // cleanup 작성하기!!!!!!!!
-
     useEffect(() => {
         const leftSelectClick = (e) => {
             if (leftSelect.current.contains(e.target)) {
@@ -88,6 +88,7 @@ function Select() {
         document.addEventListener('mousedown', rightSelectClick);
     });
 
+    const List = ['React', 'Java', 'JavaScript', 'Node'];
     return (
         <SelectDiv over={show2}>
             <h1>Select</h1>
@@ -99,10 +100,9 @@ function Select() {
                     </SelectListFirst>
                     <SelectList display={show ? 'block' : 'none'}>
                         <ul>
-                            <li>React</li>
-                            <li>Java</li>
-                            <li>JavaScript</li>
-                            <li>Node</li>
+                            {List.map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
                         </ul>
                     </SelectList>
                 </div>
@@ -114,10 +114,9 @@ function Select() {
                     </SelectListFirst>
                     <SelectList display={show2 ? 'block' : 'none'}>
                         <ul>
-                            <li>React</li>
-                            <li>Java</li>
-                            <li>JavaScript</li>
-                            <li>Node</li>
+                            {List.map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
                         </ul>
                     </SelectList>
                 </div>

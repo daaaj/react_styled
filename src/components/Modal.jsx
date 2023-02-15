@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useState, useRef } from 'react';
 
+const ModalArea = styled.div`
+    z-index: 999;
+`;
 // 버튼 공통
 const OpenModalBtn = styled.button`
     width: 150px;
@@ -21,7 +24,6 @@ const ModalBox = styled.div`
     align-items: center;
     justify-content: center;
 
-    // 위치
     // 맨 위로
     z-index: 999;
     // 중앙배치
@@ -81,7 +83,7 @@ function Modal() {
     });
 
     return (
-        <div>
+        <ModalArea>
             <h1>Modal</h1>
             <div>
                 <OpenModalBtn name={'first'} color={'gold'} onClick={OpenModal}>
@@ -106,7 +108,7 @@ function Modal() {
                     <button onClick={closeModal}>close</button>
                 </ModalBox>
             </ModalOutArea>
-        </div>
+        </ModalArea>
     );
 }
 
